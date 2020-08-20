@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
 
 class App extends Component {
   render() {
@@ -9,9 +11,16 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
         </header>
-        <br/>
-        <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p>
+        <Router>
+
+          <ul className="navBar">
+            <li> <Link> </Link></li>
+            <li> <Link> </Link></li>
+
+          </ul>
+
+          <Route></Route>
+        </Router>
       </div>
     );
   }
