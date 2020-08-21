@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import PizzaList from '../PizzaList/PizzaList.jsx'
 
 
 class App extends Component {
@@ -15,13 +15,14 @@ class App extends Component {
         <Router>
 
           <ul className="navBar">
-            <li className="nav"> <Link to="/pizzaList"> Menu </Link></li>
-            <li> <Link> </Link></li>
+            {/* <li className="nav"> <Link to="/pizzaList"> Menu </Link></li> */}
+            {/* <li> <Link> </Link></li> */}
 
           </ul>
 
-          <Route path="/pizzaList" component={PizzaList} />
+          {/* <Route path="/pizzaList" component={PizzaList} /> */}
           </Router>
+          <PizzaList />
       </div>
       
     );
