@@ -30,6 +30,7 @@ class PizzaList extends Component {
 
         return (
             <div>
+
                 <Cart />
                 <p>Total: {total}</p>
 
@@ -40,6 +41,7 @@ class PizzaList extends Component {
                             pizza={pizza} />
                     )
                 })}
+
             </div>
         );
     }

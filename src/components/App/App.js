@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import PizzaList from '../PizzaList/PizzaList.jsx'
-
+import { connect } from 'react-redux';
+import PizzaList from '../PizzaList/PizzaList';
+import UserForm from '../UserForm/UserForm';
+import Checkout from '../Checkout/Checkout'
 
 class App extends Component {
   render() {
@@ -15,18 +17,22 @@ class App extends Component {
         <Router>
 
           <ul className="navBar">
-            {/* <li className="nav"> <Link to="/pizzaList"> Menu </Link></li> */}
-            {/* <li> <Link> </Link></li> */}
 
+            <li className="nav"> <Link to="/pizzaList"> Menu </Link></li>
+            <li className="nav"> <Link to="/userForm"> Order Details </Link></li>
+            
           </ul>
+          <Route path="/userForm" component={UserForm} />
+          <Route path="/pizzaList" component={PizzaList} />
+          <Route path="/checkout" component={Checkout} />
+          </Router>
 
-          {/* <Route path="/pizzaList" component={PizzaList} /> */}
-        </Router>
         <PizzaList />
+
       </div>
 
     );
   }
 }
 
-export default App;
+export default connect()(App);

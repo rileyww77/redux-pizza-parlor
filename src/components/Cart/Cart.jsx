@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+const fakeOrders = [
+    {
+        
+    },
+    {
+
+    },
+    {
+
+    }
+
+]
+
 class Cart extends Component {
+
+    
     render() {
         return (
             <div>
