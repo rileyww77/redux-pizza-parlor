@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PizzaListItem from '../PizzaListItem/PizzaListItem.jsx';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import Cart from '../Cart/Cart.jsx'
 
 class PizzaList extends Component {
 
@@ -29,12 +30,14 @@ class PizzaList extends Component {
 
         return (
             <div>
+                <Cart />
                 <p>Total: {total}</p>
+
                 {this.props.reduxState.pizzaListReducer.map((pizza, i) => {
                     return (
-                        <PizzaListItem 
-                        key={i}
-                        pizza={pizza}/>
+                        <PizzaListItem
+                            key={i}
+                            pizza={pizza} />
                     )
                 })}
             </div>

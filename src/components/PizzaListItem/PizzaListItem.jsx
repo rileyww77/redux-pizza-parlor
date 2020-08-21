@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 class PizzaListItem extends Component {
 
-   
+
 
     addToOrder = () => {
         console.log(this.props.pizza)
-        this.props.dispatch({ type: 'ADD_TO_CART', payload: this.props.pizza})
+        this.props.dispatch({ type: 'ADD_TO_CART', payload: this.props.pizza })
     }
 
     render() {
