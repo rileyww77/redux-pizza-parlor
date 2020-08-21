@@ -15,7 +15,7 @@ class UserForm extends Component {
         }
     }
 
-  
+    
 
     handleChange = (event, propertyName) => {
         console.log('this is the property', propertyName);
