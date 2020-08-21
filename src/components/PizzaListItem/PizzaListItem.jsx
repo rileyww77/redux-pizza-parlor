@@ -7,7 +7,9 @@ class PizzaListItem extends Component {
 
     addToOrder = () => {
         console.log(this.props.pizza)
-        this.props.dispatch({ type: 'ADD_TO_CART', payload: this.props.pizza })
+        let pizza = this.props.pizza;
+        pizza.quantity = 1
+        this.props.dispatch({ type: 'ADD_TO_CART', payload: pizza })
     }
 
     render() {

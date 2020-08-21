@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './UserForm.css'
-
+import Cart from '../Cart/Cart'
 
 class UserForm extends Component {
 
@@ -84,7 +84,7 @@ class UserForm extends Component {
                 <button onClick={this.prevPage}> PREVIOUS </button>
                 <button onClick={this.nextPage}> NEXT </button>
               
-
+                <Cart />
 
             </div>
         );
