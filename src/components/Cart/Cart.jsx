@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 
 
 
-class Cart extends Component {
-
-    
+class Cart extends Component {    
     render() {
+        // const total = this.props.reduxState.checkoutReducer.reduce((totalPrice, pizza) => totalPrice + Number(pizza.price), 0)
         return (
             <div>
 

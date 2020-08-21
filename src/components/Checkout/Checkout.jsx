@@ -22,16 +22,6 @@ class Checkout extends Component {
         let userInfo = this.props.userReducer;
         const total = order.reduce((totalPrice, pizza) => totalPrice + Number(pizza.price), 0)
 
-        let pizzas = []
-
-
-        // let pizzas = order.map(pizza => {
-        //     return {name : pizza.name}
-        // })
-        
-        
-
-        console.log(pizzas);
         console.log(total);
 
         if (((userInfo.length - 1 || order.length - 1) < 0) === true) {
@@ -42,8 +32,9 @@ class Checkout extends Component {
             let actualOrder = userInfo[userIndex];
             console.log(actualOrder);
 
+
             actualOrder.total = total;
-            actualOrder.pizzas = pizzas;
+            actualOrder.pizzas = this.props.checkoutReducer;
 
             
             console.log('this is the object to post', actualOrder);
@@ -57,7 +48,7 @@ class Checkout extends Component {
                         <li> {actualOrder.city} </li>
                         <li> {actualOrder.zip} </li>
                         <li> {actualOrder.type} </li>
-                        <li> {pizzas}</li>
+                        {/* <li> {order.pizzas }</li> */}
                         <li> {total}</li>
                     </ul>
 

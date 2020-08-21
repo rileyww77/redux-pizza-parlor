@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PizzaList from '../PizzaList/PizzaList';
 import UserForm from '../UserForm/UserForm';
 import Checkout from '../Checkout/Checkout'
-
+import Admin from '../Admin/Admin'
 class App extends Component {
   render() {
     return (
@@ -14,7 +14,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
         </header>
-        <Router>
+        <Router >
 
           <ul className="navBar">
 
@@ -22,12 +22,13 @@ class App extends Component {
             <li className="nav"> <Link to="/userForm"> Order Details </Link></li>
             
           </ul>
-          <Route path="/userForm" component={UserForm} />
           <Route path="/pizzaList" component={PizzaList} />
+          <Route path="/userForm" component={UserForm} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/admin" component={Admin} />
           </Router>
 
-        <PizzaList />
+        {/* <PizzaList /> */}
 
       </div>
 
