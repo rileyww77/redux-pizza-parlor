@@ -14,21 +14,29 @@ const pizzaListReducer = (state = [], action) => {
     return state;
 }
 
-// const orderReducer = (state = [], action) => {
-//     if (action.type === 'POST_ORDER'){
-//         return action.payload
-//     } return state
-// }
+const orderReducer = (state = [], action) => {
+    if (action.type === 'GET_ORDER'){
+        return action.payload
+    } return state
+}
+
+const items = {
+    total : 59.97,
+    pizzas: [
+        {name : 'Onomatopizza', price: 14.99},
+        {name : 'Bad Date', price: 24.99},
+        {name : 'Over the Rainbow', price: 19.99},
+    ]
+}
 
 //items in the cart
-const checkoutReducer = (state = [], action) => {
+const checkoutReducer = (state = [items], action) => {
     // TODO: Pizzas added to the cart
     if (action.type === 'ADD_TO_CART'){
         return [...state, action.payload]
     } else if (action.type === 'CLEAR_CART'){
         return [];
-    }
-    
+    } 
     return state;
 };
 
@@ -44,7 +52,7 @@ const userReducer = (state = [], action) => {
 const store = createStore(
     combineReducers({
         pizzaListReducer,
-        // orderReducer,
+        orderReducer,
         checkoutReducer,
         userReducer
     
