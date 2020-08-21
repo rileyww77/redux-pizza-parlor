@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios'
+
 class Admin extends Component {
 
     componentDidMount() {
@@ -29,6 +30,7 @@ class Admin extends Component {
                         <th>Cost</th>
                     </tr>
                     <tr>
+
                                 <>
                             <td >
                             {order.customer_name}
@@ -39,15 +41,18 @@ class Admin extends Component {
                             </>
                             
                      
+
                     </tr>
                 </tbody>
             </table>
         );
     }
 }
+
 const mapStateToProps = (reduxState) => {
     return {
         orderReducer: reduxState.orderReducer,
     }
 }
+
 export default connect(mapStateToProps)(Admin);
