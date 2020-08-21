@@ -23,6 +23,9 @@ class PizzaList extends Component {
     }
 
 
+    nextPage = () => {
+        this.props.history.push('/userForm')
+     }
 
     render() {
 
@@ -32,6 +35,7 @@ class PizzaList extends Component {
             <div>
 
                 <Cart />
+                <button onClick={this.nextPage}> NEXT </button>
                 <p>Total: {total}</p>
 
                 {this.props.reduxState.pizzaListReducer.map((pizza, i) => {

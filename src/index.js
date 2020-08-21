@@ -20,17 +20,17 @@ const orderReducer = (state = [], action) => {
     } return state
 }
 
-const items = {
-    total : 59.97,
-    pizzas: [
-        {name : 'Onomatopizza', price: 14.99},
-        {name : 'Bad Date', price: 24.99},
-        {name : 'Over the Rainbow', price: 19.99},
-    ]
-}
+// const items = {
+//     total : 59.97,
+//     pizzas: [
+//         {name : 'Onomatopizza', price: 14.99},
+//         {name : 'Bad Date', price: 24.99},
+//         {name : 'Over the Rainbow', price: 19.99},
+//     ]
+// }
 
 //items in the cart
-const checkoutReducer = (state = [items], action) => {
+const checkoutReducer = (state = [], action) => {
     // TODO: Pizzas added to the cart
     if (action.type === 'ADD_TO_CART'){
         return [...state, action.payload]

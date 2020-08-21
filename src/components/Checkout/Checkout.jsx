@@ -5,57 +5,66 @@ import axios from 'axios'
 
 class Checkout extends Component {
 
-    postOrder = () => {
-        // just like $.ajax()
-        axios({
-            method: 'POST',
-            url: '/api/order'
-        }).then((response) => {
-            console.log(response);
-            // response.data will be the array of artists
-            this.props.dispatch({ type: 'POST_ORDER', payload: response.data })
-        });
+
+    postOrder = (order) => {
+        axios.post('/api/order', order)
+        .then((response) => {
+        //   this.props.dispatch({ type: 'POST_ORDER', payload: response.data })
+        }).catch((error) => {
+          console.log(error);
+        })
     }
 
-
     render() {
-        let order = this.props.checkoutReducer; 
-        let userInfo = this.props.userReducer;
+
+        let order = this.props.checkoutReducer;
         console.log(order);
+        let userInfo = this.props.userReducer;
+        const total = order.reduce((totalPrice, pizza) => totalPrice + Number(pizza.price), 0)
+
+        let pizzas = []
+
+
+        // let pizzas = order.map(pizza => {
+        //     return {name : pizza.name}
+        // })
+        
         
 
-        if ((userInfo.length - 1 || order.length -1) < 0 === true) {
+        console.log(pizzas);
+        console.log(total);
+
+        if (((userInfo.length - 1 || order.length - 1) < 0) === true) {
             return <h1> Checkout </h1>
         } else {
             let userIndex = userInfo.length - 1;
-            // let userOrder = order.length - 1;
             console.log(userIndex);
-            let actualUserInfo = userInfo[userIndex];
-            // let actualOrder = order[userOrder]
-            console.log(actualUserInfo);
-            // console.log(actualOrder);
-            console.log(order[0]);
+            let actualOrder = userInfo[userIndex];
+            console.log(actualOrder);
 
-            let orderToPost = {
-                ...order[0],
-                ...actualUserInfo
-            } 
-            console.log(orderToPost);
-            this.postOrder(orderToPost)
+            actualOrder.total = total;
+            actualOrder.pizzas = pizzas;
+
+            
+            console.log('this is the object to post', actualOrder);
+
             return (
-            <>
-            <h1> Checkout </h1>
-            <ul>
-                <li> {actualUserInfo.customer_name} </li>
-                <li> {actualUserInfo.street_address} </li>    
-                <li> {actualUserInfo.city} </li>    
-                <li> {actualUserInfo.zip} </li>    
-                <li> {actualUserInfo.type} </li>   
-             
-                <li> {order[0].total}</li> 
-            </ul>
-          </>
-        )};
+                <>
+                    <h1> Checkout </h1>
+                    <ul>
+                        <li> {actualOrder.customer_name} </li>
+                        <li> {actualOrder.street_address} </li>
+                        <li> {actualOrder.city} </li>
+                        <li> {actualOrder.zip} </li>
+                        <li> {actualOrder.type} </li>
+                        <li> {pizzas}</li>
+                        <li> {total}</li>
+                    </ul>
+
+                    <button onClick={() => this.postOrder(actualOrder)}> Submit</button>
+                </>
+            )
+        };
     }
 }
 
