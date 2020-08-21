@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -10,7 +9,7 @@ import Checkout from '../Checkout/Checkout'
 class App extends Component {
   render() {
     return (
-      
+
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
@@ -18,6 +17,7 @@ class App extends Component {
         <Router>
 
           <ul className="navBar">
+
             <li className="nav"> <Link to="/pizzaList"> Menu </Link></li>
             <li className="nav"> <Link to="/userForm"> Order Details </Link></li>
             
@@ -26,8 +26,11 @@ class App extends Component {
           <Route path="/pizzaList" component={PizzaList} />
           <Route path="/checkout" component={Checkout} />
           </Router>
+
+        <PizzaList />
+
       </div>
-      
+
     );
   }
 }
